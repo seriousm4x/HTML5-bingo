@@ -1,44 +1,42 @@
-
-var headerText = "Bingo";
-
-var footerText = "<a href='https://github.com/jeffehobbs/HTML5-bingo/' target='_blank'>Code available on github</a>";
+var headerText = "";
 
 var winText = "Winner";
 
 var clickSnd = new Audio("audio/click.mp3");
 
-var winSnd = new Audio("audio/win.mp3");
+var winSnd = new Audio("audio/ayaya.mp3");
 
-var JSONBingo = {"squares": [
-        {"square": "one"},
-        {"square": "two"},
-        {"square": "three"},
-        {"square": "four"},
-        {"square": "five"},
-        {"square": "six"},
-        {"square": "seven"},
-        {"square": "eight"},
-        {"square": "nine"},
-        {"square": "ten"},
-        {"square": "eleven"},
-        {"square": "twelve"},
-        {"square": "thirteen"},
-        {"square": "fourteen"},
-        {"square": "fifteen"},
-        {"square": "sixteen"},
-        {"square": "seventeen"},
-        {"square": "eighteen"},
-        {"square": "nineteen"},
-        {"square": "twenty"},
-        {"square": "twenty one"},
-        {"square": "twenty two"},
-        {"square": "twenty three"},
-        {"square": "twenty four"},    	
-        {"square": "twenty five"},    	
-        {"square": "twenty six"},    	
-        {"square": "twenty seven"}, 
-        {"square": "twenty eight"},    	
-        {"square": "twenty nine"},    	
-        {"square": "thirty"}    	
+var JSONBingo = {
+    "squares": [
+        { "square": "Irgendwas ist overpriced" },
+        { "square": "Band auf der Bühne" },
+        { "square": "Nicht in Deutschland" },
+        { "square": "One more thing" },
+        { "square": "Cringe" },
+        { "square": "Bullshit Marketingname" },
+        { "square": "Nichtssagende Statistik" },
+        { "square": "Game Demo" },
+        { "square": "Change the world" },
+        { "square": "Crowd nicht excited" },
+        { "square": "Neues \"Pro\" Gerät" },
+        { "square": "Swift ist geil" },
+        { "square": "Revolutionary" },
+        { "square": "HUUUUUGE" },
+        { "square": "Available now!" },
+        { "square": "Improved Battery" },
+        { "square": "KappaPride Farben" },
+        { "square": "Sport/Health" },
+        { "square": "Our best [x] ever" },
+        { "square": "Komische Kontaktnamen" },
+        { "square": "Gerätedemo fail" },
+        { "square": "Windows bashing" },
+        { "square": "Android bashing" },
+        { "square": "Neue Watch Bänder" },
+        { "square": "Neue Apple TV Screensaver" },
+        { "square": "Swift Metal performance" },
+        { "square": "Promis" },
+        { "square": "Kein USB-C" },
+        { "square": "Slightly thinner" },
+        { "square": "Stream offline" }
     ]
 };
