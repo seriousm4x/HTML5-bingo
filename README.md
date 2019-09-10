@@ -1,5 +1,7 @@
 # HTML5-Bingo
 
+### Demo: [seriousm4x.github.io/HTML5-bingo](https://seriousm4x.github.io/HTML5-bingo/)
+
 ## How to use
 
 All data is kept in the [data.js](js/data.js) file. Customize the BingoArray in the data.js file to change the text in the tiles.
