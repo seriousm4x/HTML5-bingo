@@ -4,46 +4,62 @@ $(document).ready(function() {
 
     $('#header').append(headerText);
 
-    shuffle(JSONBingo.squares);
+    shuffle(BingoArray);
 
     for (i = 0; i < 24; i++) {
 
         if (i == 12) {
             $('#board').append("<div data-value='1' class='selected freesquare' id='sqfree'><div class='text'>Apple Keynote</div></div>");
-            $('#board').append("<div data-value='0' class='square' id='sq12'><div class='text'>" + JSONBingo.squares[i].square + "</div></div>");
+            $('#board').append("<div data-value='0' class='square' id='sq12'><div class='text'>" + BingoArray[i] + "</div></div>");
         } else {
-            $('#board').append("<div data-value='0' class='square' id='sq" + i + "'><div class='text'>" + JSONBingo.squares[i].square + "</div></div>");
+            $('#board').append("<div data-value='0' class='square' id='sq" + i + "'><div class='text'>" + BingoArray[i] + "</div></div>");
         }
     }
 
     $('div.square').tappable(function() {
+        //get values before click
+        var row1_before = ($('#sq0').data('value') + $('#sq1').data('value') + $('#sq2').data('value') + $('#sq3').data('value') + $('#sq4').data('value'));
+        var row2_before = ($('#sq5').data('value') + $('#sq6').data('value') + $('#sq7').data('value') + $('#sq8').data('value') + $('#sq9').data('value'));
+        var row3_before = ($('#sq10').data('value') + $('#sq11').data('value') + $('#sqfree').data('value') + $('#sq12').data('value') + $('#sq13').data('value'));
+        var row4_before = ($('#sq14').data('value') + $('#sq15').data('value') + $('#sq16').data('value') + $('#sq17').data('value') + $('#sq18').data('value'));
+        var row5_before = ($('#sq19').data('value') + $('#sq20').data('value') + $('#sq21').data('value') + $('#sq22').data('value') + $('#sq23').data('value'));
+
+        var col1_before = ($('#sq0').data('value') + $('#sq5').data('value') + $('#sq10').data('value') + $('#sq14').data('value') + $('#sq19').data('value'));
+        var col2_before = ($('#sq1').data('value') + $('#sq6').data('value') + $('#sq11').data('value') + $('#sq15').data('value') + $('#sq20').data('value'));
+        var col3_before = ($('#sq2').data('value') + $('#sq7').data('value') + $('#sqfree').data('value') + $('#sq16').data('value') + $('#sq21').data('value'));
+        var col4_before = ($('#sq3').data('value') + $('#sq8').data('value') + $('#sq12').data('value') + $('#sq17').data('value') + $('#sq22').data('value'));
+        var col5_before = ($('#sq4').data('value') + $('#sq9').data('value') + $('#sq13').data('value') + $('#sq18').data('value') + $('#sq23').data('value'));
+
+        var diag1_before = ($('#sq0').data('value') + $('#sq6').data('value') + $('#sqfree').data('value') + $('#sq17').data('value') + $('#sq23').data('value'));
+        var diag2_before = ($('#sq4').data('value') + $('#sq8').data('value') + $('#sqfree').data('value') + $('#sq15').data('value') + $('#sq19').data('value'));
+
         $(this).toggleClass('selected');
         if ($(this).data('value') == 1) {
-            //alert(event.target.id);
             $(this).data('value', 0);
         } else {
-            //alert(event.target.id);
             $(this).data('value', 1);
         }
 
         clickSnd.play();
 
-        var row1 = ($('#sq0').data('value') + $('#sq1').data('value') + $('#sq2').data('value') + $('#sq3').data('value') + $('#sq4').data('value'));
-        var row2 = ($('#sq5').data('value') + $('#sq6').data('value') + $('#sq7').data('value') + $('#sq8').data('value') + $('#sq9').data('value'));
-        var row3 = ($('#sq10').data('value') + $('#sq11').data('value') + $('#sqfree').data('value') + $('#sq12').data('value') + $('#sq13').data('value'));
-        var row4 = ($('#sq14').data('value') + $('#sq15').data('value') + $('#sq16').data('value') + $('#sq17').data('value') + $('#sq18').data('value'));
-        var row5 = ($('#sq19').data('value') + $('#sq20').data('value') + $('#sq21').data('value') + $('#sq22').data('value') + $('#sq23').data('value'));
+        //get values after click
+        var row1_after = ($('#sq0').data('value') + $('#sq1').data('value') + $('#sq2').data('value') + $('#sq3').data('value') + $('#sq4').data('value'));
+        var row2_after = ($('#sq5').data('value') + $('#sq6').data('value') + $('#sq7').data('value') + $('#sq8').data('value') + $('#sq9').data('value'));
+        var row3_after = ($('#sq10').data('value') + $('#sq11').data('value') + $('#sqfree').data('value') + $('#sq12').data('value') + $('#sq13').data('value'));
+        var row4_after = ($('#sq14').data('value') + $('#sq15').data('value') + $('#sq16').data('value') + $('#sq17').data('value') + $('#sq18').data('value'));
+        var row5_after = ($('#sq19').data('value') + $('#sq20').data('value') + $('#sq21').data('value') + $('#sq22').data('value') + $('#sq23').data('value'));
 
-        var col1 = ($('#sq0').data('value') + $('#sq5').data('value') + $('#sq10').data('value') + $('#sq14').data('value') + $('#sq19').data('value'));
-        var col2 = ($('#sq1').data('value') + $('#sq6').data('value') + $('#sq11').data('value') + $('#sq15').data('value') + $('#sq20').data('value'));
-        var col3 = ($('#sq2').data('value') + $('#sq7').data('value') + $('#sqfree').data('value') + $('#sq16').data('value') + $('#sq21').data('value'));
-        var col4 = ($('#sq3').data('value') + $('#sq8').data('value') + $('#sq12').data('value') + $('#sq17').data('value') + $('#sq22').data('value'));
-        var col5 = ($('#sq4').data('value') + $('#sq9').data('value') + $('#sq13').data('value') + $('#sq18').data('value') + $('#sq23').data('value'));
+        var col1_after = ($('#sq0').data('value') + $('#sq5').data('value') + $('#sq10').data('value') + $('#sq14').data('value') + $('#sq19').data('value'));
+        var col2_after = ($('#sq1').data('value') + $('#sq6').data('value') + $('#sq11').data('value') + $('#sq15').data('value') + $('#sq20').data('value'));
+        var col3_after = ($('#sq2').data('value') + $('#sq7').data('value') + $('#sqfree').data('value') + $('#sq16').data('value') + $('#sq21').data('value'));
+        var col4_after = ($('#sq3').data('value') + $('#sq8').data('value') + $('#sq12').data('value') + $('#sq17').data('value') + $('#sq22').data('value'));
+        var col5_after = ($('#sq4').data('value') + $('#sq9').data('value') + $('#sq13').data('value') + $('#sq18').data('value') + $('#sq23').data('value'));
 
-        var diag1 = ($('#sq0').data('value') + $('#sq6').data('value') + $('#sqfree').data('value') + $('#sq17').data('value') + $('#sq23').data('value'));
-        var diag2 = ($('#sq4').data('value') + $('#sq8').data('value') + $('#sqfree').data('value') + $('#sq15').data('value') + $('#sq19').data('value'));
+        var diag1_after = ($('#sq0').data('value') + $('#sq6').data('value') + $('#sqfree').data('value') + $('#sq17').data('value') + $('#sq23').data('value'));
+        var diag2_after = ($('#sq4').data('value') + $('#sq8').data('value') + $('#sqfree').data('value') + $('#sq15').data('value') + $('#sq19').data('value'));
 
-        if (row1 == 5 || row2 == 5 || row3 == 5 || row4 == 5 || row5 == 5 || col1 == 5 || col2 == 5 || col3 == 5 || col4 == 5 || col5 == 5 || diag1 == 5 || diag2 == 5) {
+        //trigger only, when row, col or diag changed from 4 to 5
+        if (row1_before == 4 && row1_after == 5 || row2_before == 4 && row2_after == 5 || row3_before == 4 && row3_after == 5 || row4_before == 4 && row4_after == 5 || row5_before == 4 && row5_after == 5 || col1_before == 4 && col1_after == 5 || col2_before == 4 && col2_after == 5 || col3_before == 4 && col3_after == 5 || col4_before == 4 && col4_after == 5 || col5_before == 4 && col5_after == 5 || diag1_before == 4 && diag1_after == 5 || diag2_before == 4 && diag2_after == 5) {
             $('#header').html(winText);
             $('#header').addClass("win");
 
@@ -54,7 +70,6 @@ $(document).ready(function() {
             $('#header').removeClass("win");
         };
     });
-
 });
 
 
