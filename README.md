@@ -1,6 +1,6 @@
 # HTML5-Bingo
 
-### Demo: [seriousm4x.github.io/HTML5-bingo](https://seriousm4x.github.io/HTML5-bingo/)
+### Demo: [https://agileproggers.github.io/HTML5-bingo/](https://agileproggers.github.io/HTML5-bingo/)
 
 ## How to use
 
