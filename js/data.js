@@ -1,4 +1,4 @@
-var headerText = "Playstation 5";
+var headerText = "Battlefield 6";
 
 var winText = "Winner";
 
